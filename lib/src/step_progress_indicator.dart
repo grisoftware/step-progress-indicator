@@ -595,30 +595,26 @@ class _ProgressStep extends StatelessWidget {
       crossAxisAlignment: crossAxisAlignment,
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: direction == Axis.horizontal ? padding : 0.0,
-            vertical: direction == Axis.vertical ? padding : 0.0,
-          ),
-          // If first or last step and rounded edges enabled, apply
-          // rounded edges using ClipRRect
-          // Different corners based on first/last step and indicator's direction
-          // - First step + horizontal: top-left, bottom-left
-          // - First step + vertical: top-left, top-right
-          // - Last step + horizontal: top-right, bottom-right
-          // - Last step + vertical: bottom-left, bottom-right
-          child: (isFirstStep || isLastStep || isOnlyOneStep) &&
-                  roundedEdges != null
-              ? ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    topLeft: roundedEdges!,
-                    bottomRight: roundedEdges!,
-                    bottomLeft: roundedEdges!,
-                    topRight: roundedEdges!,
-                  ),
-                  child: _buildStep,
-                )
-              : _buildStep,
-        ),
+            padding: EdgeInsets.symmetric(
+              horizontal: direction == Axis.horizontal ? padding : 0.0,
+              vertical: direction == Axis.vertical ? padding : 0.0,
+            ),
+            // If first or last step and rounded edges enabled, apply
+            // rounded edges using ClipRRect
+            // Different corners based on first/last step and indicator's direction
+            // - First step + horizontal: top-left, bottom-left
+            // - First step + vertical: top-left, top-right
+            // - Last step + horizontal: top-right, bottom-right
+            // - Last step + vertical: bottom-left, bottom-right
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(
+                topLeft: roundedEdges!,
+                bottomRight: roundedEdges!,
+                bottomLeft: roundedEdges!,
+                topRight: roundedEdges!,
+              ),
+              child: _buildStep,
+            )),
       ],
     );
   }
