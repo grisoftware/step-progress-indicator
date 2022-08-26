@@ -230,7 +230,8 @@ class StepProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (ctx, constraits) => SizedBox(
+      builder: (ctx, constraits) => Container(
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
         width: _sizeOrMaxLength(
           direction == Axis.horizontal,
           constraits.maxWidth,
