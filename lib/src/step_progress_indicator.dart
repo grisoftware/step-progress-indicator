@@ -230,8 +230,7 @@ class StepProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (ctx, constraits) => Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+      builder: (ctx, constraits) => SizedBox(
         width: _sizeOrMaxLength(
           direction == Axis.horizontal,
           constraits.maxWidth,
@@ -611,11 +610,10 @@ class _ProgressStep extends StatelessWidget {
                   roundedEdges != null
               ? ClipRRect(
                   borderRadius: BorderRadius.only(
-                    topLeft: _radiusTopLeft ? roundedEdges! : Radius.zero,
-                    bottomRight:
-                        _radiusBottomRight ? roundedEdges! : Radius.zero,
-                    bottomLeft: _radiusBottomLeft ? roundedEdges! : Radius.zero,
-                    topRight: _radiusTopRight ? roundedEdges! : Radius.zero,
+                    topLeft: roundedEdges!,
+                    bottomRight: roundedEdges!,
+                    bottomLeft: roundedEdges!,
+                    topRight: roundedEdges!,
                   ),
                   child: _buildStep,
                 )
